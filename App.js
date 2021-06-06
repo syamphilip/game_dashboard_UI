@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View, ScrollView, Dimensions } from "react-native";
+import FirstScreen from "./FirstScreen/firstScreen";
+import SecondScreen from "./SecondScreen/SecondScreen";
 
 export default function App() {
+  const windowHeight = Dimensions.get("window").height;
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView>
+      <View
+        style={{ flex: 1, backgroundColor: "#77529F", height: windowHeight }}
+      >
+        <FirstScreen />
+      </View>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "white",
+          height: windowHeight,
+          padding: 20,
+        }}
+      >
+        <SecondScreen />
+      </View>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
